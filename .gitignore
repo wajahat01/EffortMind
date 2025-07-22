@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+
+# Model files
+*.pkl
+
+# Data
+*.csv
+
+# Node
+node_modules/
+build/
+dist/
+.env
+
+# Mac
+.DS_Store
+
+# Logs
+*.log
+
+# VSCode
+.vscode/ 
