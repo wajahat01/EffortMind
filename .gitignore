@@ -1,30 +1,114 @@
+# Node.js
+node_modules/
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency directories
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv environment variables file
+.env
+
+# parcel-bundler cache
+.cache
+
+# next.js build output
+.next
+
+# nuxt.js build output
+.nuxt
+
+# vuepress build output
+.vuepress/dist
+
+# Serverless directories
+.serverless
+
 # Python
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
-venv/
+*.py[cod]
+*$py.class
 
-# Jupyter Notebooks
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Jupyter Notebook
 .ipynb_checkpoints
+
+# Environments
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# VSCode
+.vscode/
+
+# MacOS
+.DS_Store
 
 # Model files
 *.pkl
 
-# Data
+# Local history for VSCode
+.history/
+
+# Ignore data and log files
+*.log
 *.csv
 
-# Node
-node_modules/
-build/
-dist/
-.env
-
-# Mac
-.DS_Store
-
-# Logs
-*.log
-
-# VSCode
-.vscode/ 
+# Ignore system files
+Thumbs.db 
