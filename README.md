@@ -88,6 +88,27 @@ EffortMind is ready for containerized deployment using Docker and Nginx.
 - The Flask backend will be available at `http://localhost:5000`.
 - Nginx is configured (see `nginx.conf`) to serve the frontend and proxy API requests to the backend.
 
+## 🚀 Deploying to Render.com (Alternate Option)
+
+You can deploy EffortMind to [Render.com](https://render.com/) using the provided Dockerfile. This will serve both the Flask backend and React frontend together using Nginx.
+
+1. **Push your code to GitHub.**
+2. **Create a new Web Service on Render:**
+   - Go to your Render dashboard and click **New +** → **Web Service**.
+   - Connect your GitHub repository.
+   - For **Environment**, select **Docker**.
+   - For **Build Command**, leave blank (Render uses your Dockerfile).
+   - For **Start Command**, leave blank (Render uses the `CMD` in your Dockerfile).
+   - Set the **Port** to `80` (Nginx serves on port 80 inside the container).
+   - Click **Create Web Service**.
+3. **(Optional) Add environment variables** in the Render dashboard if needed.
+4. **Wait for build and deploy.**
+5. **Access your app** at the provided Render URL (e.g., `https://your-app.onrender.com`).
+
+**Note:**
+- For production, use relative API URLs (e.g., `/predict`) in your frontend code. Nginx will proxy these requests to Flask.
+- This is an alternate deployment option to running locally or using Docker directly.
+
 ## Hackathon Compliance & Open Source
 
 - This project **fully complies with all hackathon rules**.

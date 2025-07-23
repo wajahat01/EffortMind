@@ -5,12 +5,15 @@ import { postPrediction } from '../api';
 const priorities = ['High', 'Medium', 'Low'];
 const modules = ['Frontend', 'Backend', 'DevOps', 'API'];
 const taskTypes = ['Bug', 'Feature', 'Improvement', 'Research'];
+const resourceLevels = ['SENIOR', 'MID', 'JUNIOR'];
 
 function TaskForm({ onPrediction }) {
   const [taskTitle, setTaskTitle] = useState('');
   const [priority, setPriority] = useState(priorities[0]);
   const [module, setModule] = useState(modules[0]);
   const [taskType, setTaskType] = useState(taskTypes[0]);
+  const [taskDescription, setTaskDescription] = useState('');
+  const [resourceLevel, setResourceLevel] = useState(resourceLevels[0]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -21,9 +24,11 @@ function TaskForm({ onPrediction }) {
     try {
       const data = await postPrediction({
         task_title: taskTitle,
+        task_description: taskDescription,
         priority,
         module,
-        task_type: taskType
+        task_type: taskType,
+        resource_level: resourceLevel
       });
       onPrediction(data.estimated_effort_hours);
     } catch (err) {
@@ -55,6 +60,16 @@ function TaskForm({ onPrediction }) {
         <label>Task Type: </label>
         <select value={taskType} onChange={e => setTaskType(e.target.value)}>
           {taskTypes.map(t => <option key={t} value={t}>{t}</option>)}
+        </select>
+      </div>
+      <div style={{ marginBottom: 10 }}>
+        <label>Task Description: </label>
+        <textarea value={taskDescription} onChange={e => setTaskDescription(e.target.value)} required rows={3} style={{ width: '100%' }} />
+      </div>
+      <div style={{ marginBottom: 10 }}>
+        <label>Resource Level: </label>
+        <select value={resourceLevel} onChange={e => setResourceLevel(e.target.value)}>
+          {resourceLevels.map(lvl => <option key={lvl} value={lvl}>{lvl}</option>)}
         </select>
       </div>
       <button type="submit" disabled={loading}>{loading ? 'Predicting...' : 'Predict'}</button>
